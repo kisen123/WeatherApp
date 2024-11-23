@@ -1,0 +1,18 @@
+.weather-div {
+    /* Set some content styles */
+    background-color: lightblue; /* Content area color */
+    color: darkblue;
+    text-align: center;
+  
+    /* Visualizing the box model */
+    margin: 20px; /* Outer area */
+    border: 5px solid red; /* Border */
+    padding: 10px; /* Inner spacing */
+    box-sizing: content-box; /* Ensures padding doesn't alter width/height */
+  }
+  
+  /* Add a background to parent to visualize the margin */
+  body {
+    background-color: lightgray;
+    padding: 50px; /* To give space around the viewport */
+  }
