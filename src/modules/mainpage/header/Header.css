@@ -1,0 +1,7 @@
+.title-div {
+    display: flex;
+    justify-content: center;
+
+    font-style: italic;
+    font-size: 0.8vh;
+}

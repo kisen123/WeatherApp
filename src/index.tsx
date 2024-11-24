@@ -5,9 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
-// 
-import LiveWeather from './modules/mainpage/live_weather/LiveWeather';
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -16,12 +13,6 @@ root.render(
     <App />
   </React.StrictMode>
 );
-
-root.render(
-  <React.StrictMode>
-    <LiveWeather />
-  </React.StrictMode>
-)
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
