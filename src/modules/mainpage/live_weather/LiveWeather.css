@@ -1,18 +1,37 @@
-.weather-div {
-    /* Set some content styles */
-    background-color: lightblue; /* Content area color */
-    color: darkblue;
-    text-align: center;
-  
-    /* Visualizing the box model */
-    margin: 20px; /* Outer area */
-    border: 5px solid red; /* Border */
-    padding: 10px; /* Inner spacing */
-    box-sizing: content-box; /* Ensures padding doesn't alter width/height */
-  }
-  
-  /* Add a background to parent to visualize the margin */
-  body {
-    background-color: lightgray;
-    padding: 50px; /* To give space around the viewport */
-  }
+.weather-widget {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.weather-widget .header {
+  text-align: center;
+}
+
+.weather-widget h1 {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.weather-widget h2 {
+  font-size: 1.2em;
+  margin-top: 0;
+  color: #555;
+}
+
+.weather-widget .details {
+  margin-top: 10px;
+}
+
+.weather-widget .details div {
+  margin-bottom: 5px;
+}
+
+.weather-widget strong {
+  color: #333;
+}
+
