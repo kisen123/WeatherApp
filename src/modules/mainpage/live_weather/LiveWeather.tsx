@@ -4,6 +4,10 @@ import { useState } from 'react';
 import './LiveWeather.css';
 import LocationSearch from './LocationSearch';
 
+// Asset import(s)
+import { TemperatureIcon, HumidityIcon, WindSpeedIcon, OverallConditionIcon } from '../../../assets/icons/WeatherIcons';
+
+
 
 // API data goes here, test values for now
 interface WeatherData {
@@ -38,16 +42,16 @@ const WeatherWidget: React.FC = () => {
             </div>
             <div className="details">
                 <div>
-                <strong>Temperature:</strong> {weatherData.temperature}
+                <strong>Temperature:</strong> {weatherData.temperature} <TemperatureIcon />
                 </div>
                 <div>
-                <strong>Humidity:</strong> {weatherData.humidity}
+                <strong>Humidity:</strong> {weatherData.humidity} <HumidityIcon />
                 </div>
                 <div>
-                <strong>Wind Speed:</strong> {weatherData.windSpeed}
+                <strong>Wind Speed:</strong> {weatherData.windSpeed} <WindSpeedIcon />
                 </div>
                 <div>
-                <strong>Condition:</strong> {weatherData.condition}
+                <strong>Condition:</strong> {weatherData.condition} <OverallConditionIcon />
                 </div>
                 
                 <h2 className="location-search-result">{weatherData.location}</h2>
