@@ -8,6 +8,11 @@
     bottom: 10px
 }
 
+.footer-div .made-by {
+    font-size: 27px;
+    font-weight: bold;
+}
+
 .made-by {
     font-style: italic;
 }

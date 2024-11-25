@@ -8,9 +8,9 @@ const Footer: React.FC = () => {
 
     return (
         <div className="footer-div">
-            <p className="made-by">
+            <span className="made-by">
                 Kristian Mølbach Lian
-            </p>
+            </span>
             <a href={link_to_github} className="link-to-github">
                 {link_to_github}
             </a>
