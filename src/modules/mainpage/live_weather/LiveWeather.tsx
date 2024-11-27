@@ -42,25 +42,28 @@ const WeatherWidget: React.FC = () => {
             </div>
             <div className="weather-data-details">
                 <div className='humidity'>
-                    <HumidityIcon />
+                    <HumidityIcon className='humidity-icon'/>
                     <p>{weatherData.humidity}</p>
                 </div>
                 <div className='wind-speed'>
-                    <WindSpeedIcon />
+                    <WindSpeedIcon className='windSpeed-icon' />
                     <p>{weatherData.windSpeed}</p>
                 </div>
                 <div className='temperature'>
-                    <TemperatureIcon />
+                    <TemperatureIcon className='temperature-icon' />
                     <p>{weatherData.temperature} </p>
                 </div>
                 <div className='condition'>
-                    <OverallConditionIcon />
+                    <OverallConditionIcon className='condition-icon' />
                     <p>{weatherData.condition} </p>
                 </div>
             </div>
 
-            <h2 className="location-search-result">{weatherData.location}</h2>
-            <LocationSearch />
+            <div className="location-search-container">
+                <h2 className="location-search-result">{weatherData.location}</h2>
+                <LocationSearch className='location-search'/>
+            </div>
+            
 
 
         </div>

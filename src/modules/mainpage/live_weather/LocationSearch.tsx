@@ -9,12 +9,16 @@ interface Location {
     }
 
 
-const LocationSearch: React.FC = () => {
+type LocationSearchProps = {
+    className?: string
+}
+
+const LocationSearch: React.FC<LocationSearchProps> = () => {
     
 
 
     return (
-        <div className="geolocation-search-div">Search bar goes here</div>
+        <div>Search bar goes here</div>
     )
 }
 
