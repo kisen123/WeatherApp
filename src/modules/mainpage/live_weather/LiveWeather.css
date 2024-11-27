@@ -1,11 +1,12 @@
 .weather-widget {
+
   font-family: Arial, sans-serif;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 15px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  margin: 0 auto;
+  width: 90%;
+  margin: 30px auto;
 }
 
 .weather-widget .header {
@@ -16,12 +17,7 @@
 .weather-widget h1 {
   font-size: 1.5em;
   margin-bottom: 5px;
-}
-
-.weather-widget h2 {
-  font-size: 1.2em;
-  margin-top: 0;
-  color: #555;
+  color: #fff;
 }
 
 .weather-widget .weather-data-details {
@@ -53,4 +49,39 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.weather-widget .weather-data-details .location-search-result {
+  font-size: 1.2em;
+  margin-top: 0;
+  color: #fff;
+}
+
+.location-search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.data-value {
+  font-size: 50px;
+  margin: 5px 40px 5px 40px
+}
+
+#humidity-value {
+  font-size: 20px;
+}
+
+#windSpeed-value {
+  font-size: 40px;
+}
+
+#temperature-value {
+  font-size: 70px;
+}
+
+
+#condition-value {
+  font-size: 25px;
 }

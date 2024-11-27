@@ -24,6 +24,10 @@ interface WeatherData {
 
 const WeatherWidget: React.FC = () => {
 
+
+    const [locationSearch, setLocationSearch] = useState('');
+
+
     // Test values weather data
     const weatherData: WeatherData = {
         temperature: "-1°C",
@@ -43,26 +47,36 @@ const WeatherWidget: React.FC = () => {
             <div className="weather-data-details">
                 <div className='humidity'>
                     <HumidityIcon className='humidity-icon'/>
-                    <p>{weatherData.humidity}</p>
+                    <p className='data-value' id='humidity-value'>{weatherData.humidity}</p>
                 </div>
                 <div className='wind-speed'>
                     <WindSpeedIcon className='windSpeed-icon' />
-                    <p>{weatherData.windSpeed}</p>
+                    <p className='data-value' id='windSpeed-value'>{weatherData.windSpeed}</p>
                 </div>
                 <div className='temperature'>
                     <TemperatureIcon className='temperature-icon' />
-                    <p>{weatherData.temperature} </p>
+                    <p className='data-value' id='temperature-value'>{weatherData.temperature} </p>
                 </div>
                 <div className='condition'>
                     <OverallConditionIcon className='condition-icon' />
-                    <p>{weatherData.condition} </p>
+                    <p className='data-value' id='condition-value'>{weatherData.condition} </p>
                 </div>
             </div>
 
             <div className="location-search-container">
                 <h2 className="location-search-result">{weatherData.location}</h2>
-                <LocationSearch className='location-search'/>
+                <LocationSearch 
+                className='location-search-component'
+                onChange={(event) => {
+                    setLocationSearch(event.target.value); 
+                }}
+                />
             </div>
+
+            <div>
+                Ok. You want the weather data for location: {locationSearch}
+            </div>
+            
             
 
 
