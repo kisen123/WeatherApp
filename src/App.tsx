@@ -3,7 +3,7 @@ import logo from './logo.svg';
 
 
 // Header import(s)
-import Header from './modules/mainpage/header/Header';
+import Header from './modules/mainpage/header/Header'; 
 
 
 // Body import(s)
