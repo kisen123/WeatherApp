@@ -1,0 +1,481 @@
+{
+    "totalResults": 5,
+    "_links": {
+        "self": {
+            "href": "/api/v0/locations"
+        },
+        "page": {
+            "href": "/api/v0/locations{?page}"
+        },
+        "search": {
+            "href": "/api/v0/locations/search{?q}"
+        },
+        "location": [
+            {
+                "href": "/api/v0/locations/1-332208"
+            },
+            {
+                "href": "/api/v0/locations/1-211004"
+            },
+            {
+                "href": "/api/v0/locations/2-2794652"
+            },
+            {
+                "href": "/api/v0/locations/1-2822155"
+            },
+            {
+                "href": "/api/v0/locations/11-39797"
+            }
+        ]
+    },
+    "_embedded": {
+        "location": [
+            {
+                "category": {
+                    "id": "CH09",
+                    "name": "Tettbebyggelse"
+                },
+                "id": "1-332208",
+                "name": "Kattem",
+                "position": {
+                    "lat": 63.34563,
+                    "lon": 10.33338
+                },
+                "elevation": 143,
+                "timeZone": "Europe/Oslo",
+                "urlPath": "Norge/Trøndelag/Trondheim/Kattem",
+                "country": {
+                    "id": "NO",
+                    "name": "Norge"
+                },
+                "region": {
+                    "id": "NO/50",
+                    "name": "Trøndelag"
+                },
+                "subregion": {
+                    "id": "NO/50/5001",
+                    "name": "Trondheim"
+                },
+                "isInOcean": false,
+                "_links": {
+                    "self": {
+                        "href": "/api/v0/locations/1-332208"
+                    },
+                    "celestialevents": {
+                        "href": "/api/v0/locations/1-332208/celestialevents"
+                    },
+                    "forecast": {
+                        "href": "/api/v0/locations/1-332208/forecast"
+                    },
+                    "cameras": {
+                        "href": "/api/v0/locations/1-332208/cameras"
+                    },
+                    "currenthour": {
+                        "href": "/api/v0/locations/1-332208/forecast/currenthour"
+                    },
+                    "mapfeature": {
+                        "href": "/api/v0/locations/1-332208/mapfeature"
+                    },
+                    "now": {
+                        "href": "/api/v0/locations/1-332208/forecast/now"
+                    },
+                    "subseasonalforecast": {
+                        "href": "/api/v0/locations/1-332208/subseasonalforecast"
+                    },
+                    "auroraforecast": {
+                        "href": "/api/v0/locations/1-332208/auroraforecast"
+                    },
+                    "notifications": {
+                        "href": "/api/v0/locations/1-332208/notifications"
+                    },
+                    "extremeforecasts": {
+                        "href": "/api/v0/locations/1-332208/notifications/extreme"
+                    },
+                    "warnings": {
+                        "href": "/api/v0/locations/1-332208/warnings"
+                    },
+                    "extremewarnings": {
+                        "href": "/api/v0/locations/1-332208/warnings/extreme"
+                    },
+                    "watertemperatures": {
+                        "href": "/api/v0/locations/1-332208/nearestwatertemperatures"
+                    },
+                    "airqualityforecast": {
+                        "href": "/api/v0/locations/1-332208/airqualityforecast"
+                    },
+                    "observations": [
+                        {
+                            "href": "/api/v0/locations/1-332208/observations"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-332208/observations/nearby"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-332208/observations/year"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-332208/observations/month"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-332208/observations/day"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-332208/observations/yyyy-MM-dd"
+                        }
+                    ]
+                }
+            },
+            {
+                "category": {
+                    "id": "EK02",
+                    "name": "Gårdsbruk"
+                },
+                "id": "1-211004",
+                "name": "Kattem",
+                "position": {
+                    "lat": 63.2638,
+                    "lon": 10.06738
+                },
+                "elevation": 255,
+                "coastalPoint": {
+                    "lat": 63.33473,
+                    "lon": 10.11878
+                },
+                "timeZone": "Europe/Oslo",
+                "urlPath": "Norge/Trøndelag/Skaun/Kattem",
+                "country": {
+                    "id": "NO",
+                    "name": "Norge"
+                },
+                "region": {
+                    "id": "NO/50",
+                    "name": "Trøndelag"
+                },
+                "subregion": {
+                    "id": "NO/50/5029",
+                    "name": "Skaun"
+                },
+                "isInOcean": false,
+                "_links": {
+                    "self": {
+                        "href": "/api/v0/locations/1-211004"
+                    },
+                    "celestialevents": {
+                        "href": "/api/v0/locations/1-211004/celestialevents"
+                    },
+                    "forecast": {
+                        "href": "/api/v0/locations/1-211004/forecast"
+                    },
+                    "cameras": {
+                        "href": "/api/v0/locations/1-211004/cameras"
+                    },
+                    "currenthour": {
+                        "href": "/api/v0/locations/1-211004/forecast/currenthour"
+                    },
+                    "mapfeature": {
+                        "href": "/api/v0/locations/1-211004/mapfeature"
+                    },
+                    "coast": {
+                        "href": "/api/v0/locations/1-211004/forecast/coast"
+                    },
+                    "tide": {
+                        "href": "/api/v0/locations/1-211004/tide"
+                    },
+                    "now": {
+                        "href": "/api/v0/locations/1-211004/forecast/now"
+                    },
+                    "subseasonalforecast": {
+                        "href": "/api/v0/locations/1-211004/subseasonalforecast"
+                    },
+                    "auroraforecast": {
+                        "href": "/api/v0/locations/1-211004/auroraforecast"
+                    },
+                    "notifications": {
+                        "href": "/api/v0/locations/1-211004/notifications"
+                    },
+                    "extremeforecasts": {
+                        "href": "/api/v0/locations/1-211004/notifications/extreme"
+                    },
+                    "warnings": {
+                        "href": "/api/v0/locations/1-211004/warnings"
+                    },
+                    "extremewarnings": {
+                        "href": "/api/v0/locations/1-211004/warnings/extreme"
+                    },
+                    "watertemperatures": {
+                        "href": "/api/v0/locations/1-211004/nearestwatertemperatures"
+                    },
+                    "airqualityforecast": {
+                        "href": "/api/v0/locations/1-211004/airqualityforecast"
+                    },
+                    "observations": [
+                        {
+                            "href": "/api/v0/locations/1-211004/observations"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-211004/observations/nearby"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-211004/observations/year"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-211004/observations/month"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-211004/observations/day"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-211004/observations/yyyy-MM-dd"
+                        }
+                    ]
+                }
+            },
+            {
+                "category": {
+                    "id": "CK01",
+                    "name": "Befolket sted"
+                },
+                "id": "2-2794652",
+                "name": "Kattem",
+                "position": {
+                    "lat": 50.84925,
+                    "lon": 4.10254
+                },
+                "elevation": 72,
+                "timeZone": "Europe/Brussels",
+                "urlPath": "Belgia/Flanders/Flemish Brabant/Kattem",
+                "country": {
+                    "id": "BE",
+                    "name": "Belgia"
+                },
+                "region": {
+                    "id": "BE/VLG",
+                    "name": "Flanders"
+                },
+                "subregion": {
+                    "id": "BE/VLG/VBR",
+                    "name": "Flemish Brabant"
+                },
+                "isInOcean": false,
+                "_links": {
+                    "self": {
+                        "href": "/api/v0/locations/2-2794652"
+                    },
+                    "celestialevents": {
+                        "href": "/api/v0/locations/2-2794652/celestialevents"
+                    },
+                    "forecast": {
+                        "href": "/api/v0/locations/2-2794652/forecast"
+                    },
+                    "cameras": {
+                        "href": "/api/v0/locations/2-2794652/cameras"
+                    },
+                    "currenthour": {
+                        "href": "/api/v0/locations/2-2794652/forecast/currenthour"
+                    },
+                    "mapfeature": {
+                        "href": "/api/v0/locations/2-2794652/mapfeature"
+                    },
+                    "observations": [
+                        {
+                            "href": "/api/v0/locations/2-2794652/observations"
+                        },
+                        {
+                            "href": "/api/v0/locations/2-2794652/observations/nearby"
+                        }
+                    ]
+                }
+            },
+            {
+                "category": {
+                    "id": "EF52",
+                    "name": "Annen kulturdetalj"
+                },
+                "id": "1-2822155",
+                "name": "Kattem",
+                "position": {
+                    "lat": 63.33968,
+                    "lon": 10.33545
+                },
+                "elevation": 137,
+                "timeZone": "Europe/Oslo",
+                "urlPath": "Norge/Trøndelag/Trondheim/Kattem",
+                "country": {
+                    "id": "NO",
+                    "name": "Norge"
+                },
+                "region": {
+                    "id": "NO/50",
+                    "name": "Trøndelag"
+                },
+                "subregion": {
+                    "id": "NO/50/5001",
+                    "name": "Trondheim"
+                },
+                "isInOcean": false,
+                "_links": {
+                    "self": {
+                        "href": "/api/v0/locations/1-2822155"
+                    },
+                    "celestialevents": {
+                        "href": "/api/v0/locations/1-2822155/celestialevents"
+                    },
+                    "forecast": {
+                        "href": "/api/v0/locations/1-2822155/forecast"
+                    },
+                    "cameras": {
+                        "href": "/api/v0/locations/1-2822155/cameras"
+                    },
+                    "currenthour": {
+                        "href": "/api/v0/locations/1-2822155/forecast/currenthour"
+                    },
+                    "mapfeature": {
+                        "href": "/api/v0/locations/1-2822155/mapfeature"
+                    },
+                    "now": {
+                        "href": "/api/v0/locations/1-2822155/forecast/now"
+                    },
+                    "subseasonalforecast": {
+                        "href": "/api/v0/locations/1-2822155/subseasonalforecast"
+                    },
+                    "auroraforecast": {
+                        "href": "/api/v0/locations/1-2822155/auroraforecast"
+                    },
+                    "notifications": {
+                        "href": "/api/v0/locations/1-2822155/notifications"
+                    },
+                    "extremeforecasts": {
+                        "href": "/api/v0/locations/1-2822155/notifications/extreme"
+                    },
+                    "warnings": {
+                        "href": "/api/v0/locations/1-2822155/warnings"
+                    },
+                    "extremewarnings": {
+                        "href": "/api/v0/locations/1-2822155/warnings/extreme"
+                    },
+                    "watertemperatures": {
+                        "href": "/api/v0/locations/1-2822155/nearestwatertemperatures"
+                    },
+                    "airqualityforecast": {
+                        "href": "/api/v0/locations/1-2822155/airqualityforecast"
+                    },
+                    "observations": [
+                        {
+                            "href": "/api/v0/locations/1-2822155/observations"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-2822155/observations/nearby"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-2822155/observations/year"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-2822155/observations/month"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-2822155/observations/day"
+                        },
+                        {
+                            "href": "/api/v0/locations/1-2822155/observations/yyyy-MM-dd"
+                        }
+                    ]
+                }
+            },
+            {
+                "category": {
+                    "id": "KL03",
+                    "name": "Busstopp"
+                },
+                "id": "11-39797",
+                "name": "Kattem",
+                "position": {
+                    "lat": 63.0188,
+                    "lon": 9.35018
+                },
+                "elevation": 235,
+                "timeZone": "Europe/Oslo",
+                "urlPath": "Norge/Trøndelag/Rindal/Kattem",
+                "country": {
+                    "id": "NO",
+                    "name": "Norge"
+                },
+                "region": {
+                    "id": "NO/50",
+                    "name": "Trøndelag"
+                },
+                "subregion": {
+                    "id": "NO/50/5061",
+                    "name": "Rindal"
+                },
+                "isInOcean": false,
+                "_links": {
+                    "self": {
+                        "href": "/api/v0/locations/11-39797"
+                    },
+                    "celestialevents": {
+                        "href": "/api/v0/locations/11-39797/celestialevents"
+                    },
+                    "forecast": {
+                        "href": "/api/v0/locations/11-39797/forecast"
+                    },
+                    "cameras": {
+                        "href": "/api/v0/locations/11-39797/cameras"
+                    },
+                    "currenthour": {
+                        "href": "/api/v0/locations/11-39797/forecast/currenthour"
+                    },
+                    "mapfeature": {
+                        "href": "/api/v0/locations/11-39797/mapfeature"
+                    },
+                    "now": {
+                        "href": "/api/v0/locations/11-39797/forecast/now"
+                    },
+                    "subseasonalforecast": {
+                        "href": "/api/v0/locations/11-39797/subseasonalforecast"
+                    },
+                    "auroraforecast": {
+                        "href": "/api/v0/locations/11-39797/auroraforecast"
+                    },
+                    "notifications": {
+                        "href": "/api/v0/locations/11-39797/notifications"
+                    },
+                    "extremeforecasts": {
+                        "href": "/api/v0/locations/11-39797/notifications/extreme"
+                    },
+                    "warnings": {
+                        "href": "/api/v0/locations/11-39797/warnings"
+                    },
+                    "extremewarnings": {
+                        "href": "/api/v0/locations/11-39797/warnings/extreme"
+                    },
+                    "watertemperatures": {
+                        "href": "/api/v0/locations/11-39797/nearestwatertemperatures"
+                    },
+                    "airqualityforecast": {
+                        "href": "/api/v0/locations/11-39797/airqualityforecast"
+                    },
+                    "observations": [
+                        {
+                            "href": "/api/v0/locations/11-39797/observations"
+                        },
+                        {
+                            "href": "/api/v0/locations/11-39797/observations/nearby"
+                        },
+                        {
+                            "href": "/api/v0/locations/11-39797/observations/year"
+                        },
+                        {
+                            "href": "/api/v0/locations/11-39797/observations/month"
+                        },
+                        {
+                            "href": "/api/v0/locations/11-39797/observations/day"
+                        },
+                        {
+                            "href": "/api/v0/locations/11-39797/observations/yyyy-MM-dd"
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
