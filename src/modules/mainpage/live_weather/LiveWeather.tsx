@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { useState } from 'react';
 import './LiveWeather.css';
 import LocationSearch from './LocationSearch';
+import axios from 'axios';
 
 // Asset import(s)
 import { TemperatureIcon, HumidityIcon, WindSpeedIcon, OverallConditionIcon } from '../../../assets/icons/WeatherIcons';
@@ -19,13 +20,32 @@ interface WeatherData {
 }
 
 
-//const [geoLocation, setGeoLocation] = useState('');
-//const [testInput, setTestInput] = useState('Some random input');
 
 const WeatherWidget: React.FC = () => {
 
 
     const [locationSearch, setLocationSearch] = useState('');
+    const [locationSearchResult, setLocationSearchResult] = useState({}); 
+    const [userLanguage, setUserLanguage] = useState('nb');
+
+
+    const api_url = `https://www.yr.no/api/v0/locations/suggest?language=${userLanguage}&q=${locationSearch}`;
+
+
+    // Testing out search results
+    const searchResults = (event: Event) => {
+       
+        console.log("Search results")
+
+
+        axios.get(api_url)
+        .then((response) => {
+            setLocationSearchResult(response.data)
+            console.log(response.data)
+        })
+    
+    };
+
 
 
     // Test values weather data

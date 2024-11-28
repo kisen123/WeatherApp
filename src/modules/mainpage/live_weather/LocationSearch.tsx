@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import './LocationSearch.css';
-//import axios from "axios";
 
 interface Location {
     name: string;
@@ -15,9 +14,9 @@ type LocationSearchProps = {
     onChange?: React.ChangeEventHandler<HTMLInputElement>; // For handling onChange of an input
 }
 
+
 const LocationSearch: React.FC<LocationSearchProps> = ( {className, onChange} ) => {
     
-
 
     return (
         <input type="text"
