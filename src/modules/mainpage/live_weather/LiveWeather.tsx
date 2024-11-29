@@ -15,6 +15,10 @@ import SearchResultsTable from './SearchResultsTable';
 import { SearchResult, SearchResultsTableProps } from './types.d';
 
 
+// Import(s) for local files
+import yr_locations from '../../../assets/example_api_responses/yr_locations.json';
+
+
 
 // API data goes here, test values for now
 interface WeatherData {
@@ -25,27 +29,37 @@ interface WeatherData {
     condition: string;
 }
 
-const mockSearchData = [
-    { id: 1, name: 'Alice', description: 'Software Engineer', createdAt: '2023-01-01' },
-    { id: 2, name: 'Bob', description: 'Product Manager', createdAt: '2023-01-02' },
-    { id: 3, name: 'Charlie', description: 'Designer', createdAt: '2023-01-03' },
-]
-
 
 
 const WeatherWidget: React.FC = () => {
 
 
+    
+
+
+
     const [locationSearchQuery, setLocationSearchQuery] = useState('');
+    const [isTableVisible, setIsTableVisible] = useState(true);
     const [debouncedQuery, setDebouncedQuery] = useState('');
-    const [locationSearchResult, setLocationSearchResult] = useState({}); 
+    const [locationSearchResult, setLocationSearchResult] = useState(null); 
     const [userLanguage, setUserLanguage] = useState('nb');
-    const [filteredResults, setFilteredResults] = useState(mockSearchData);
 
     const timeout_ref = useRef<NodeJS.Timeout | null>(null);
 
 
+    
+
+    // Function to fetch search suggestions from Yr's API
+    // NOTE: This is not TypeScript-friendly, but I don't have access
+    // to Yr's Swagger documentation currently
     const api_url = `https://www.yr.no/api/v0/locations/suggest?language=${userLanguage}&q=${locationSearchQuery}`;
+
+    const fetchSearchSuggestions = async () => {
+        const response = await fetch(api_url);
+        const data = await response.json(); // Data will be inferred
+
+        return data; // Type will be inferred
+    }
 
 
 
@@ -63,40 +77,28 @@ const WeatherWidget: React.FC = () => {
     }, [locationSearchQuery]);
 
 
+    //const locations_from_query: any = locationSearchResult;
+    const locations_from_query = yr_locations._embedded.location;
+
     useEffect(() => {
         // Triggered only when debouncedQuery changes
         if (debouncedQuery) {
             console.log(`Debounced query: ${debouncedQuery}`);
-        /*
+        
         axios.get(api_url)
         .then((response) => {
             setLocationSearchResult(response.data)
             console.log(response.data)
         })
-        */
+        
 
         }
     }, [debouncedQuery]);
 
 
-
-
-    /*
-    const handleSearchChange = useCallback((value: string) => {
-        
-        if (timeout_ref.current) {
-            clearTimeout(timeout_ref.current);
-        }
-
-        timeout_ref.current = setTimeout(() => {
-            console.log("Search query: ", value);
-            setLocationSearchQuery(value); // Updates locationSearchQuery
-        }, 500); // 500ms debounce timer
-    }, []);
-    */
-
-
-
+    const handleRowClick = (id: string) => {
+        alert(`Row with ID ${id} clicked`);
+    }
 
 
     // Test values weather data
@@ -143,17 +145,20 @@ const WeatherWidget: React.FC = () => {
                 className="location-search-input"
                 onChange={(event) => setLocationSearchQuery(event.target.value)}/>
 
-                
-
-
-
-
             </div>          
 
-            <div>
-                <SearchResultsTable className='search-results-table' results={mockSearchData}/>
-            </div>
+
+            {isTableVisible && (
+                <div>
+                    <SearchResultsTable className='search-results-table' results={locations_from_query} onRowClick={handleRowClick}/>
+                </div>
+            )}
+            {!isTableVisible && <p>Table has been hidden</p>}
+
             
+
+
+
             <div>
                 Ok. You want the weather data for location: {debouncedQuery}
             </div>

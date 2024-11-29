@@ -1,12 +1,27 @@
 export interface SearchResult {
-    id: number; // Unique identifier
+    id: string; // Unique identifier
     name: string;
-    description: string;
-    createdAt: string; // Date or string
+    elevation: number;
+
+    category: {
+      id: string,
+      name: string,
+    };
+
+    subregion: {
+      id: string,
+      name: string,
+    };
+
+    region: {
+      id: string,
+      name: string,
+    };
   }
   
   export interface SearchResultsTableProps {
     className?: string;
+    //results: any;
     results: SearchResult[];
-    onRowClick?: (id: number) => void; // Optional callback for row click
+    onRowClick?: (id: string) => void; // Optional callback for row click
   }

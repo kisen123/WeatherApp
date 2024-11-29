@@ -1,0 +1,43 @@
+/* SearchResultsTable.module.css */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .headerRow {
+    background-color: #ffd34349;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+  
+  .cell {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cell span:nth-child(1) {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .cell span:nth-child(2) {
+    font-size: 20px;
+    opacity: 80%;
+  }
+  
+  .tableContainer {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .tableRow:hover {
+    background-color: #1cddff2a;
+    cursor: pointer;
+  }

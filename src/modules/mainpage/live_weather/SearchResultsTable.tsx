@@ -1,28 +1,31 @@
-import { table } from "console";
 import React from "react";
+
+// Import(s) for types
 import { SearchResult, SearchResultsTableProps } from "./types.d";
-import './SearchResultsTable.css';
+
+// Import(s) for styles
+import styles from './SearchResultsTable.module.css';
+
 
 const SearchResultsTable: React.FC<SearchResultsTableProps> = ({ className, results, onRowClick }) => {
+    
+    
     return (
 
-        <div className={className}>
-            <table>
+        <div className={styles.tableContainer}>
+            <table className={styles.table}>
                 <thead>
-                    <tr>
-                        <th>ID</th>
+                    <tr className={styles.headerRow}>
                         <th>Name</th>
-                        <th>Description</th>
-                        <th>Created at</th>
                     </tr>
                 </thead>
                 <tbody>
                 {results.map((result) => (
-                    <tr key={result.id} onClick={() => onRowClick && onRowClick(result.id)}>
-                        <td>{result.id}</td>
-                        <td>{result.name}</td>
-                        <td>{result.description}</td>
-                        <td>{new Date(result.createdAt).toLocaleDateString()}</td>
+                    <tr key={result.id} className={styles.tableRow} onClick={() => onRowClick && onRowClick(result.id)}>
+                        <td className={styles.cell}>
+                            <span>{result.name}</span>
+                            <span>{result.category.name}, {result.subregion.name} ({result.region.name}), {result.elevation} moh</span>
+                        </td>
                     </tr>
                 ))}
                 </tbody>
