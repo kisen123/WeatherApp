@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { useCallback, useState, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import { useState } from 'react';
 import './LiveWeather.css';
-import LocationSearch from './LocationSearch';
 import axios from 'axios';
 
 // Asset import(s)
@@ -24,28 +22,62 @@ interface WeatherData {
 const WeatherWidget: React.FC = () => {
 
 
-    const [locationSearch, setLocationSearch] = useState('');
+    const [locationSearchQuery, setLocationSearchQuery] = useState('');
+    const [debouncedQuery, setDebouncedQuery] = useState('');
     const [locationSearchResult, setLocationSearchResult] = useState({}); 
     const [userLanguage, setUserLanguage] = useState('nb');
 
-
-    const api_url = `https://www.yr.no/api/v0/locations/suggest?language=${userLanguage}&q=${locationSearch}`;
-
-
-    // Testing out search results
-    const searchResults = (event: Event) => {
-       
-        console.log("Search results")
+    const timeout_ref = useRef<NodeJS.Timeout | null>(null);
 
 
+    const api_url = `https://www.yr.no/api/v0/locations/suggest?language=${userLanguage}&q=${locationSearchQuery}`;
+
+    // Debouncing logic
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            setDebouncedQuery(locationSearchQuery);
+        }, 500); //500ms debounce timer
+    
+        // Cleanup timeout if locationSearchQuery before 500ms
+        return () => {
+            clearTimeout(handler);
+        };
+    
+    }, [locationSearchQuery]);
+
+
+    useEffect(() => {
+        // Triggered only when debouncedQuery changes
+        if (debouncedQuery) {
+            console.log(`Debounced query: ${debouncedQuery}`);
+        }
+    }, [debouncedQuery]);
+
+
+
+
+    /*
+    const handleSearchChange = useCallback((value: string) => {
+        
+        if (timeout_ref.current) {
+            clearTimeout(timeout_ref.current);
+        }
+
+        timeout_ref.current = setTimeout(() => {
+            console.log("Search query: ", value);
+            setLocationSearchQuery(value); // Updates locationSearchQuery
+        }, 500); // 500ms debounce timer
+    }, []);
+    */
+
+
+        /*
         axios.get(api_url)
         .then((response) => {
             setLocationSearchResult(response.data)
             console.log(response.data)
         })
-    
-    };
-
+*/
 
 
     // Test values weather data
@@ -85,16 +117,22 @@ const WeatherWidget: React.FC = () => {
 
             <div className="location-search-container">
                 <h2 className="location-search-result">{weatherData.location}</h2>
-                <LocationSearch 
-                className='location-search-component'
-                onChange={(event) => {
-                    setLocationSearch(event.target.value); 
-                }}
-                />
+
+
+                <input type="text"
+                placeholder="Search..."
+                className="location-search-input"
+                onChange={(event) => setLocationSearchQuery(event.target.value)}/>
+
+                
+
+
+
+
             </div>
 
             <div>
-                Ok. You want the weather data for location: {locationSearch}
+                Ok. You want the weather data for location: {debouncedQuery}
             </div>
             
             
