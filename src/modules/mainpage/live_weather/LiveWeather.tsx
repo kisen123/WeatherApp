@@ -7,6 +7,14 @@ import axios from 'axios';
 import { TemperatureIcon, HumidityIcon, WindSpeedIcon, OverallConditionIcon } from '../../../assets/icons/WeatherIcons';
 
 
+// React component import(s)
+import SearchResultsTable from './SearchResultsTable';
+
+
+// Type import(s)
+import { SearchResult, SearchResultsTableProps } from './types.d';
+
+
 
 // API data goes here, test values for now
 interface WeatherData {
@@ -17,6 +25,12 @@ interface WeatherData {
     condition: string;
 }
 
+const mockSearchData = [
+    { id: 1, name: 'Alice', description: 'Software Engineer', createdAt: '2023-01-01' },
+    { id: 2, name: 'Bob', description: 'Product Manager', createdAt: '2023-01-02' },
+    { id: 3, name: 'Charlie', description: 'Designer', createdAt: '2023-01-03' },
+]
+
 
 
 const WeatherWidget: React.FC = () => {
@@ -26,11 +40,14 @@ const WeatherWidget: React.FC = () => {
     const [debouncedQuery, setDebouncedQuery] = useState('');
     const [locationSearchResult, setLocationSearchResult] = useState({}); 
     const [userLanguage, setUserLanguage] = useState('nb');
+    const [filteredResults, setFilteredResults] = useState(mockSearchData);
 
     const timeout_ref = useRef<NodeJS.Timeout | null>(null);
 
 
     const api_url = `https://www.yr.no/api/v0/locations/suggest?language=${userLanguage}&q=${locationSearchQuery}`;
+
+
 
     // Debouncing logic
     useEffect(() => {
@@ -50,6 +67,14 @@ const WeatherWidget: React.FC = () => {
         // Triggered only when debouncedQuery changes
         if (debouncedQuery) {
             console.log(`Debounced query: ${debouncedQuery}`);
+        /*
+        axios.get(api_url)
+        .then((response) => {
+            setLocationSearchResult(response.data)
+            console.log(response.data)
+        })
+        */
+
         }
     }, [debouncedQuery]);
 
@@ -71,13 +96,7 @@ const WeatherWidget: React.FC = () => {
     */
 
 
-        /*
-        axios.get(api_url)
-        .then((response) => {
-            setLocationSearchResult(response.data)
-            console.log(response.data)
-        })
-*/
+
 
 
     // Test values weather data
@@ -129,13 +148,16 @@ const WeatherWidget: React.FC = () => {
 
 
 
-            </div>
+            </div>          
 
+            <div>
+                <SearchResultsTable className='search-results-table' results={mockSearchData}/>
+            </div>
+            
             <div>
                 Ok. You want the weather data for location: {debouncedQuery}
             </div>
-            
-            
+
 
 
         </div>
