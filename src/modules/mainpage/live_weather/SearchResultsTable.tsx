@@ -1,7 +1,7 @@
 import React from "react";
 
 // Import(s) for types
-import { SearchResult, SearchResultsTableProps } from "./types.d";
+import { Location, SearchResultsTableProps } from "../../../types/api-responses/search_api_types";
 
 // Import(s) for styles
 import styles from './SearchResultsTable.module.css';

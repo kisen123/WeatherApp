@@ -12,7 +12,7 @@ import SearchResultsTable from './SearchResultsTable';
 
 
 // Type import(s)
-import { SearchResult, SearchResultsTableProps } from './types.d';
+import { SearchResultsAPI, SearchResultsTableProps } from '../../../types/api-responses/search_api_types';
 
 
 // Import(s) for local files
@@ -29,36 +29,27 @@ interface WeatherData {
     condition: string;
 }
 
-
-
-const WeatherWidget: React.FC = () => {
-
-
-    
+const WeatherWidget: React.FC = () => {    
 
 
 
     const [locationSearchQuery, setLocationSearchQuery] = useState('');
     const [isTableVisible, setIsTableVisible] = useState(true);
     const [debouncedQuery, setDebouncedQuery] = useState('');
-    const [locationSearchResult, setLocationSearchResult] = useState(null); 
+    const [locationSearchResult, setLocationSearchResult] = useState<Location[]>(); 
     const [userLanguage, setUserLanguage] = useState('nb');
 
     const timeout_ref = useRef<NodeJS.Timeout | null>(null);
 
 
-    
-
     // Function to fetch search suggestions from Yr's API
-    // NOTE: This is not TypeScript-friendly, but I don't have access
-    // to Yr's Swagger documentation currently
-    const api_url = `https://www.yr.no/api/v0/locations/suggest?language=${userLanguage}&q=${locationSearchQuery}`;
+    // NOTE: This does not currently work because of CORS policy.
+    const api_url: string = `https://www.yr.no/api/v0/locations/suggest?language=${userLanguage}&q=${locationSearchQuery}`;
 
-    const fetchSearchSuggestions = async () => {
-        const response = await fetch(api_url);
-        const data = await response.json(); // Data will be inferred
-
-        return data; // Type will be inferred
+    const fetchSearchSuggestions = async (api_url: string): Promise<SearchResultsAPI> => {
+        const response = await axios.get<SearchResultsAPI>(api_url);
+        
+        return response.data; // Type will be inferred
     }
 
 
@@ -77,7 +68,7 @@ const WeatherWidget: React.FC = () => {
     }, [locationSearchQuery]);
 
 
-    //const locations_from_query: any = locationSearchResult;
+    //const locations_from_query: Location[] = locationSearchResult;
     const locations_from_query = yr_locations._embedded.location;
 
     useEffect(() => {
@@ -85,12 +76,38 @@ const WeatherWidget: React.FC = () => {
         if (debouncedQuery) {
             console.log(`Debounced query: ${debouncedQuery}`);
         
-        axios.get(api_url)
-        .then((response) => {
-            setLocationSearchResult(response.data)
-            console.log(response.data)
-        })
-        
+
+            /*
+            const loadSearchSuggestions = async () => {
+
+                try {
+
+                    const data = fetchSearchSuggestions(api_url);
+
+                    console.log(data);
+                } catch (err) {
+                    console.log(err);
+                }
+
+            }
+
+            loadSearchSuggestions();
+
+
+            */
+
+            /*
+            fetch(api_url)
+            .then(response => response.json())
+            .then(
+                res => {
+                    console.log(res)
+                    console.log("test");
+                }
+                
+            );
+
+        */
 
         }
     }, [debouncedQuery]);
