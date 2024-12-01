@@ -10,6 +10,8 @@ Here is how it looks as of today:
 
 - 01.12.2024: Some location-search-queries work just fine, others are CORS-blocked. Naturally, the difference between the queries that do work, and those that don't, is the existence of Access-Control-Allow-Origin. In the queries that do work, is is set to *, in the queries that don't work, it isn't a part of the response header at all.
 
+- 01.12.2024: Made the search results not resize the weather widget
+
 
 
 ## (ClothesForRunningApp)
