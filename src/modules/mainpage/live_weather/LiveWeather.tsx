@@ -12,7 +12,7 @@ import SearchResultsTable from './SearchResultsTable';
 
 
 // Type import(s)
-import { SearchResultsAPI, SearchResultsTableProps } from '../../../types/api-responses/search_api_types';
+import { SearchResultsAPI, SearchResultsTableProps, Location } from '../../../types/api-responses/search_api_types';
 
 
 // Import(s) for local files
@@ -36,7 +36,7 @@ const WeatherWidget: React.FC = () => {
     const [locationSearchQuery, setLocationSearchQuery] = useState('');
     const [isTableVisible, setIsTableVisible] = useState(true);
     const [debouncedQuery, setDebouncedQuery] = useState('');
-    const [locationSearchResult, setLocationSearchResult] = useState<Location[]>(); 
+    const [locationSearchResult, setLocationSearchResult] = useState<Location[]>([]); 
     const [userLanguage, setUserLanguage] = useState('nb');
 
     const timeout_ref = useRef<NodeJS.Timeout | null>(null);
@@ -69,7 +69,7 @@ const WeatherWidget: React.FC = () => {
 
 
     //const locations_from_query: Location[] = locationSearchResult;
-    const locations_from_query = yr_locations._embedded.location;
+    // const locations_from_query = yr_locations._embedded.location;
 
     useEffect(() => {
         // Triggered only when debouncedQuery changes
@@ -77,12 +77,13 @@ const WeatherWidget: React.FC = () => {
             console.log(`Debounced query: ${debouncedQuery}`);
         
 
-            /*
+            
             const loadSearchSuggestions = async () => {
 
                 try {
 
-                    const data = fetchSearchSuggestions(api_url);
+                    const data: SearchResultsAPI = await fetchSearchSuggestions(api_url);
+                    setLocationSearchResult(data._embedded?.location || []);
 
                     console.log(data);
                 } catch (err) {
@@ -94,7 +95,7 @@ const WeatherWidget: React.FC = () => {
             loadSearchSuggestions();
 
 
-            */
+            
 
             /*
             fetch(api_url)
@@ -167,7 +168,7 @@ const WeatherWidget: React.FC = () => {
 
             {isTableVisible && (
                 <div>
-                    <SearchResultsTable className='search-results-table' results={locations_from_query} onRowClick={handleRowClick}/>
+                    <SearchResultsTable className='search-results-table' results={locationSearchResult} onRowClick={handleRowClick}/>
                 </div>
             )}
             {!isTableVisible && <p>Table has been hidden</p>}

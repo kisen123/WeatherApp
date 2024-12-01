@@ -5,7 +5,7 @@ export interface SearchResultsAPI {
 }
 
 export interface Embedded {
-    location: Location[];
+    location?: Location[];
 }
 
 export interface Location {
