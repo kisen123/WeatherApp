@@ -17,6 +17,7 @@ import { SearchResultsAPI, SearchResultsTableProps, Location } from '../../../ty
 
 // Import(s) for local files
 import yr_locations from '../../../assets/example_api_responses/yr_locations.json';
+import { click } from '@testing-library/user-event/dist/click';
 
 
 
@@ -29,7 +30,7 @@ interface WeatherData {
     condition: string;
 }
 
-const WeatherWidget: React.FC = () => {    
+const LiveWeather: React.FC = () => {    
 
 
 
@@ -38,6 +39,7 @@ const WeatherWidget: React.FC = () => {
     const [debouncedQuery, setDebouncedQuery] = useState('');
     const [locationSearchResult, setLocationSearchResult] = useState<Location[]>([]); 
     const [userLanguage, setUserLanguage] = useState('nb');
+    const [locationID, setLocationID] = useState<string>('');
 
     const timeout_ref = useRef<NodeJS.Timeout | null>(null);
 
@@ -86,9 +88,9 @@ const WeatherWidget: React.FC = () => {
 
                     setIsTableVisible(true);
 
-                    console.log(data);
                 } catch (err) {
                     console.log(err);
+                    console.log("THERE WAS AN ERROR")
                 }
 
             }
@@ -103,8 +105,10 @@ const WeatherWidget: React.FC = () => {
     }, [debouncedQuery]);
 
 
-    const handleRowClick = (id: string) => {
-        alert(`Row with ID ${id} clicked`);
+    const handleRowClick = (clickedLocationID: string) => {
+        alert(`Row with ID ${clickedLocationID} clicked`);
+        setIsTableVisible(false)
+        setLocationID(clickedLocationID);
     }
 
 
@@ -143,8 +147,15 @@ const WeatherWidget: React.FC = () => {
                 </div>
             </div>
 
+            <div>
+                Debounced search query: {debouncedQuery}
+            </div>
+
+            <div>
+                Selected location: {locationID}
+            </div>
+
             <div className="location-search-container">
-                <h2 className="location-search-result">{weatherData.location}</h2>
 
 
                 <input type="text"
@@ -152,23 +163,13 @@ const WeatherWidget: React.FC = () => {
                 className="location-search-input"
                 onChange={(event) => setLocationSearchQuery(event.target.value)}/>
 
+
+                {isTableVisible && (
+                    <SearchResultsTable results={locationSearchResult} onRowClick={handleRowClick}/>
+                    )}
+
+
             </div>          
-
-
-            {isTableVisible && (
-                <div>
-                    <SearchResultsTable className='search-results-table' results={locationSearchResult} onRowClick={handleRowClick}/>
-                </div>
-            )}
-
-            
-
-
-
-            <div>
-                Ok. You want the weather data for location: {debouncedQuery}
-            </div>
-
 
 
         </div>
@@ -178,4 +179,4 @@ const WeatherWidget: React.FC = () => {
     }
 
 
-export default WeatherWidget;
+export default LiveWeather;

@@ -31,7 +31,10 @@
   }
   
   .tableContainer {
-    max-height: 400px;
+    position: absolute;
+    width: 90%;
+    max-height: 200px;
+    margin: 65px;
     overflow-y: auto;
     border: 1px solid #ddd;
     border-radius: 4px;

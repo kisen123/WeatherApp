@@ -1,5 +1,4 @@
 .weather-widget {
-
   font-family: Arial, sans-serif;
   background-color: rgba(0, 0, 0, 0.3);
   padding: 15px;
@@ -51,11 +50,16 @@
   align-items: center;
 }
 
-.weather-widget .weather-data-details .location-search-result {
+.weather-widget .weather-data-details .location-search-results-table {
+  position: relative;
   font-size: 1.2em;
   margin-top: 0;
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 
 .location-search-container {
   display: flex;
@@ -88,7 +92,7 @@
 
 
 .location-search-input[type=text] {
-  width: 30%;
+  width: 50%;
   box-sizing: border-box;
   border: 2px solid #ccc;
   border-radius: 10px;
@@ -104,5 +108,5 @@
 }
 
 .location-search-input[type=text]:focus {
-  width: 40%
+  width: 52%
 }

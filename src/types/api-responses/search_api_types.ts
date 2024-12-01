@@ -70,5 +70,5 @@ export interface SearchResultsLinks {
 export interface SearchResultsTableProps {
     className?: string;
     results: Location[];
-    onRowClick?: (id: string) => void; // Optional callback for row click
+    onRowClick?: (id: string) => void; // Optional callback for row click'
 }
