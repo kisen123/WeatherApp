@@ -34,7 +34,7 @@ const WeatherWidget: React.FC = () => {
 
 
     const [locationSearchQuery, setLocationSearchQuery] = useState('');
-    const [isTableVisible, setIsTableVisible] = useState(true);
+    const [isTableVisible, setIsTableVisible] = useState(false);
     const [debouncedQuery, setDebouncedQuery] = useState('');
     const [locationSearchResult, setLocationSearchResult] = useState<Location[]>([]); 
     const [userLanguage, setUserLanguage] = useState('nb');
@@ -68,8 +68,6 @@ const WeatherWidget: React.FC = () => {
     }, [locationSearchQuery]);
 
 
-    //const locations_from_query: Location[] = locationSearchResult;
-    // const locations_from_query = yr_locations._embedded.location;
 
     useEffect(() => {
         // Triggered only when debouncedQuery changes
@@ -82,8 +80,11 @@ const WeatherWidget: React.FC = () => {
 
                 try {
 
+                    // Fetching the search results from the Yr-API
                     const data: SearchResultsAPI = await fetchSearchSuggestions(api_url);
                     setLocationSearchResult(data._embedded?.location || []);
+
+                    setIsTableVisible(true);
 
                     console.log(data);
                 } catch (err) {
@@ -95,21 +96,9 @@ const WeatherWidget: React.FC = () => {
             loadSearchSuggestions();
 
 
-            
-
-            /*
-            fetch(api_url)
-            .then(response => response.json())
-            .then(
-                res => {
-                    console.log(res)
-                    console.log("test");
-                }
-                
-            );
-
-        */
-
+        }
+        else if (debouncedQuery === '') {
+            setIsTableVisible(false);
         }
     }, [debouncedQuery]);
 
@@ -171,7 +160,6 @@ const WeatherWidget: React.FC = () => {
                     <SearchResultsTable className='search-results-table' results={locationSearchResult} onRowClick={handleRowClick}/>
                 </div>
             )}
-            {!isTableVisible && <p>Table has been hidden</p>}
 
             
 
